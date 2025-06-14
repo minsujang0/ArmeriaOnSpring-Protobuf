@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package greeter.v1;
+
+import "google/api/annotations.proto";
+
+option java_multiple_files = true;
+option java_package = "io.github.minsujang0.greeter.v1";
+
+// The greeter service definition.
+service GreeterCompatService {
+  // Sends a greeting
+  rpc SayHelloCompat (SayHelloCompatRequest) returns (SayHelloCompatResponse) {
+    option (google.api.http) = {
+      post: "/v1/greeter/say-hello-compat"
+      body: "*"
+    };
+  }
+}
+
+// The request message containing the user's name.
+message SayHelloCompatRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message SayHelloCompatResponse {
+  string message = 1;
+} 
