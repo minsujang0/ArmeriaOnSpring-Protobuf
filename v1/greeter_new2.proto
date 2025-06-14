@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package greeter.v1;
+
+option java_multiple_files = true;
+option java_package = "io.github.minsujang0.greeter.v1";
+
+// The greeter service definition.
+service GreeterNew2Service {
+  // Sends a greeting
+  rpc SayHelloNew2 (SayHelloNew2Request) returns (SayHelloNew2Response) {}
+}
+
+// The request message containing the user's name.
+message SayHelloNew2Request {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message SayHelloNew2Response {
+  string message = 1;
+} 
