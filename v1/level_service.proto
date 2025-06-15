@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package level_service.v1;
+
+option java_multiple_files = true;
+option java_package = "io.github.minsujang0.level_service.v1";
+
+// A service to check user levels.
+service LevelService {
+  // Retrieves the level for a given user. This will always fail for demonstration.
+  rpc GetLevel(GetLevelRequest) returns (GetLevelResponse);
+}
+
+message GetLevelRequest {
+  string user_id = 1;
+}
+
+message GetLevelResponse {
+  int32 level = 1;
+}
+
+/**
+ * Defines the error codes for the LevelService.
+ */
+enum LevelServiceError {
+  LEVEL_SERVICE_ERROR_UNSPECIFIED = 0;
+  // Indicates that the level system is currently unavailable.
+  LEVEL_SERVICE_ERROR_LEVEL_SYSTEM_UNAVAILABLE = 1;
+} 

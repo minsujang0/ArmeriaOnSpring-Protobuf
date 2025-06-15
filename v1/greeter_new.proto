@@ -8,7 +8,7 @@ option java_package = "io.github.minsujang0.greeter.v1";
 // The greeter service definition.
 service GreeterNewService {
   // Sends a greeting
-  rpc SayHelloNew (SayHelloNewRequest) returns (SayHelloNewResponse) {}
+  rpc SayHelloNew(SayHelloNewRequest) returns (SayHelloNewResponse) {}
 }
 
 // The request message containing the user's name.
@@ -19,4 +19,17 @@ message SayHelloNewRequest {
 // The response message containing the greetings
 message SayHelloNewResponse {
   string message = 1;
-} 
+}
+
+/**
+ * Defines the error codes that can be returned by the GreeterNewService.
+ */
+enum GreeterNewError {
+  // The default value. This is not used.
+  GREETER_NEW_ERROR_UNSPECIFIED = 0;
+  // The requested user was not found.
+  GREETER_NEW_ERROR_USER_NOT_FOUND = 1;
+  GREETER_NEW_ERROR_USER_BANNED = 2;
+  GREETER_NEW_ERROR_USER_INVALID = 3;
+  GREETER_NEW_ERROR_SERVICE_UNAVAILABLE = 4;
+}
